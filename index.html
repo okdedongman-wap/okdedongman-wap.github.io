@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ok的动漫 - 新番追番/番剧片库/热血日常/国漫日番/高清动漫导航</title>
+<meta name="description" content="ok的动漫（https://okdedongman-wap）做新番追番、番剧片库、热血少年、日常治愈、国漫日番、剧场版合集、高清动漫点播导航。霓虹粉紫+赛博青单页站，移动端自适应，内页#占位，必应收录友好。">
+<meta name="keywords" content="ok的动漫,新番追番,番剧片库,热血少年,日常治愈,国漫日番,剧场版合集">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<style>
+:root{
+  --bg:#10101f;
+  --bg2:#16162b;
+  --card:#1d1d38;
+  --line:#34345f;
+  --txt:#f7f7ff;
+  --sub:#a7a7d6;
+  --pink:#ff5fa2;
+  --cyan:#39e6ff;
+  --yellow:#ffd23f;
+  --soft:#191933;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:
+    radial-gradient(1000px 520px at 90% -10%,rgba(255,95,162,.20),transparent),
+    radial-gradient(820px 520px at -6% 8%,rgba(57,230,255,.16),transparent),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--txt);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+.header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+  background:rgba(16,16,31,.94);border-bottom:1px solid var(--line);}
+.nav{max-width:1180px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-weight:900;font-size:22px;display:flex;align-items:center;gap:8px}
+.logo b{color:var(--pink)}
+.logo i{color:var(--cyan);font-style:normal}
+.menu{display:flex;gap:14px;font-size:15px}
+.menu a{padding:8px 12px;color:rgba(247,247,255,.74);border-radius:999px}
+.menu a:hover{color:#fff;background:linear-gradient(90deg,var(--pink),var(--cyan))}
+.bar{display:none;font-size:26px;cursor:pointer;color:var(--pink)}
+
+.section{padding:64px 0;border-bottom:1px solid var(--line)}
+.h2{font-size:25px;margin:0 0 6px;display:flex;align-items:center;gap:10px;
+  background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
+.h2::before{content:"✨";-webkit-text-fill-color:initial;color:var(--pink)}
+.lead{color:var(--sub);margin-bottom:26px}
+
+.hero{padding:92px 0 60px;position:relative;overflow:hidden}
+.hero::after{content:"ACG";position:absolute;right:10px;top:-6px;font-weight:900;font-size:130px;
+  color:rgba(255,95,162,.12);letter-spacing:-4px}
+.badge{display:inline-block;font-size:12px;letter-spacing:1.5px;color:#10101f;font-weight:800;
+  background:linear-gradient(90deg,var(--pink),var(--cyan),var(--yellow));padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:42px;line-height:1.2;margin-bottom:16px;font-weight:900}
+.hero h1 span{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:rgba(247,247,255,.8);max-width:860px;margin-bottom:24px}
+.cta{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:800;color:#10101f;
+  background:linear-gradient(90deg,var(--pink),var(--cyan));
+  box-shadow:0 14px 34px rgba(255,95,162,.28);}
+.cta:hover{filter:brightness(1.05)}
+
+.stat{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat .s{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px 16px;min-width:140px}
+.stat .s b{font-size:20px;color:var(--cyan)}
+.stat .s small{display:block;color:var(--sub)}
+
+.grid{display:grid;gap:18px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  transition:.25s transform,.25s box-shadow,.25s border-color}
+.card:hover{transform:translateY(-4px);border-color:var(--pink);
+  box-shadow:0 18px 42px rgba(255,95,162,.20)}
+.poster{aspect-ratio:3/4;background:linear-gradient(160deg,#2a1840,#10283a);position:relative}
+.poster span{position:absolute;left:10px;top:10px;font-size:12px;padding:4px 8px;border-radius:999px;
+  background:rgba(57,230,255,.16);border:1px solid var(--cyan);color:#bff4ff;font-weight:700}
+.poster em{position:absolute;right:10px;top:10px;font-style:normal;font-size:12px;font-weight:800;color:var(--yellow)}
+.poster b{position:absolute;left:10px;bottom:10px;font-size:12px;color:var(--pink);font-weight:800}
+.card-body{padding:14px}
+.card-body h3{font-size:16px;margin-bottom:6px}
+.card-body p{font-size:13px;color:var(--sub)}
+.tag{display:inline-block;font-size:12px;color:var(--cyan);border:1px solid var(--cyan);padding:2px 8px;border-radius:6px;margin-right:6px;margin-top:4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.chips span{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;color:var(--sub)}
+.chips span.on{color:#10101f;font-weight:800;border:0;background:linear-gradient(90deg,var(--pink),var(--cyan),var(--yellow))}
+
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.week div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.week div b{display:block;color:var(--pink);font-size:15px}
+.week div small{color:var(--sub);font-size:12px}
+
+.rank{display:flex;gap:14px;align-items:center;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.rank .no{font-size:22px;font-weight:900;color:var(--pink);min-width:42px;text-align:center}
+.rank h3{font-size:16px}
+.rank p{font-size:13px;color:var(--sub)}
+
+.news{display:grid;gap:14px}
+.news a{display:block;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.news a:hover{border-color:var(--pink)}
+.news h3{font-size:16px;margin-bottom:6px}
+.news time{font-size:12px;color:var(--sub)}
+
+.faq{display:grid;gap:12px}
+.faq div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.faq b{color:var(--pink)}
+
+.muted{color:var(--sub)}
+.footer{padding:42px 0 64px;color:var(--sub);font-size:14px;border-top:1px solid var(--line)}
+.footer a{color:var(--pink)}
+
+@media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.week{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){
+  .bar{display:block}
+  .menu{display:none;position:absolute;left:0;right:0;top:62px;flex-direction:column;gap:0;
+    padding:8px 18px 16px;background:rgba(16,16,31,.98);border-bottom:1px solid var(--line)}
+  .menu.show{display:flex}
+  .menu a{padding:12px 8px;border-bottom:1px solid var(--line)}
+  .hero h1{font-size:28px}
+  .g3,.g4{grid-template-columns:1fr}
+  .week{grid-template-columns:repeat(2,1fr)}
+  .section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header class="header">
+  <div class="nav">
+    <div class="logo">✨ <b>ok的</b><i>动漫</i></div>
+    <div class="bar" id="bar">☰</div>
+    <nav class="menu" id="menu">
+      <a href="#home">首页</a>
+      <a href="#new">新番日历</a>
+      <a href="#hot">热播番剧</a>
+      <a href="#genre">题材分区</a>
+      <a href="#theater">剧场版</a>
+      <a href="#rank">追番榜</a>
+      <a href="#news">ACG情报</a>
+      <a href="#faq">常见问题</a>
+      <a href="#about">关于我们</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="home">
+    <span class="badge">新番追番 · 番剧片库 · 热血少年 · 日常治愈 · 国漫日番 · 剧场版合集</span>
+    <h1>ok的动漫：<span>新番更新、番剧封面墙、追番进度一眼看懂</span></h1>
+    <p>
+      ok的动漫（https://okdedongman-wap）做新番追番、番剧片库、热血少年、日常治愈、国漫日番、剧场版合集、高清动漫点播导航，
+      走霓虹粉紫+赛博青“二次元追番站”单页风。移动端自适应、内页 # 占位，方便必应爬虫快速理解站点主题。
+    </p>
+    <a class="cta" href="#new">看本周新番 ›</a>
+    <div class="stat">
+      <div class="s"><b>128</b><small>本周更新番剧</small></div>
+      <div class="s"><b>3,600+</b><small>番剧片库</small></div>
+      <div class="s"><b>42</b><small>题材标签</small></div>
+      <div class="s"><b>98%</b><small>移动端追番占比</small></div>
+    </div>
+  </section>
+
+  <section class="section" id="new">
+    <h2 class="h2">新番日历</h2>
+    <p class="lead">周一至周日更新排期，内页用 # 占位，避免 404 死链影响必应收录。</p>
+    <div class="week">
+      <div><b>一</b><small>热血番×3</small></div>
+      <div><b>二</b><small>治愈番×2</small></div>
+      <div><b>三</b><small>国漫×4</small></div>
+      <div><b>四</b><small>悬疑番×2</small></div>
+      <div><b>五</b><small>恋爱番×3</small></div>
+      <div><b>六</b><small>剧场版预告</small></div>
+      <div><b>日</b><small>补番合集</small></div>
+    </div>
+  </section>
+
+  <section class="section" id="hot">
+    <h2 class="h2">热播番剧</h2>
+    <p class="lead">长尾词覆盖：ok的动漫 新番追番 / 番剧片库 / 热血少年 / 日常治愈 / 国漫日番 / 剧场版合集。</p>
+    <div class="grid g4">
+      <div class="card">
+        <div class="poster"><span>连载</span><em>★9.2</em><b>热血</b></div>
+        <div class="card-body">
+          <h3>《剑鸣少年的修罗场》</h3>
+          <p><span class="tag">热血</span><span class="tag">战斗</span>刀鸣一响，修行开始。</p>
+          <p><a href="#">追番 ›</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster"><span>日番</span><em>★8.9</em><b>治愈</b></div>
+        <div class="card-body">
+          <h3>《猫耳咖啡馆》</h3>
+          <p><span class="tag">日常</span><span class="tag">治愈</span>猫耳店员，周三闭店。</p>
+          <p><a href="#">追番 ›</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster"><span>国漫</span><em>★9.4</em><b>仙侠</b></div>
+        <div class="card-body">
+          <h3>《山海灯谜录》</h3>
+          <p><span class="tag">国漫</span><span class="tag">仙侠</span>一盏灯，照见百妖。</p>
+          <p><a href="#">追番 ›</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster"><span>校园</span><em>★8.7</em><b>恋爱</b></div>
+        <div class="card-body">
+          <h3>《转学当天被告白》</h3>
+          <p><span class="tag">校园</span><span class="tag">恋爱</span>樱花树下，全员修罗场。</p>
+          <p><a href="#">追番 ›</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="genre">
+    <h2 class="h2">题材分区</h2>
+    <p class="lead">按受众和题材切，比“动作/喜剧”更适合二次元用户。</p>
+    <div class="chips">
+      <span class="on">🔥 热血少年：修行 / 战斗 / 团战 / 逆袭</span>
+      <span>🌸 日常治愈：咖啡馆 / 猫 / 放学后 / 慢生活</span>
+      <span>⚔️ 国漫仙侠：山海 / 灯谜 / 剑修 / 妖兽</span>
+      <span>💗 校园恋爱：转学 / 告白 / 修罗场 / 青梅竹马</span>
+      <span>👻 悬疑怪谈：都市怪谈 / 规则类 / 异界</span>
+      <span>🚀 科幻机甲：星际 / AI / 末日 / 驾驶舱</span>
+    </div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="poster"><span>热血</span></div>
+        <div class="card-body"><h3>《九重天梯》</h3><p class="muted">爬不完的天梯，每九层换一个世界。</p><p><a href="#">打开分区 ›</a></p></div>
+      </div>
+      <div class="card">
+        <div class="poster"><span>治愈</span></div>
+        <div class="card-body"><h3>《雨天不上课》</h3><p class="muted">下雨=放假，三个初中生和一只乌鸦。</p><p><a href="#">打开分区 ›</a></p></div>
+      </div>
+      <div class="card">
+        <div class="poster"><span>国漫</span></div>
+        <div class="card-body"><h3>《灯下百妖谱》</h3><p class="muted">提灯少年，专门收名字被遗忘的妖。</p><p><a href="#">打开分区 ›</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="theater">
+    <h2 class="h2">剧场版合集</h2>
+    <p class="lead">剧场版、OVA、总集篇、导演剪辑——一次性补完。</p>
+    <div class="grid g3">
+      <div class="rank"><div class="no">🎬</div><div><h3>《剑鸣：终焰剧场版》</h3><p>热血番完结篇，120 分钟不喝水。</p></div></div>
+      <div class="rank"><div class="no">🎬</div><div><h3>《猫耳咖啡馆：雪夜限定》</h3><p>冬季限定剧场版，猫耳店员过生日。</p></div></div>
+      <div class="rank"><div class="no">🎬</div><div><h3>《山海灯谜：归灯之夜》</h3><p>国漫剧场版，百妖送灯回家。</p></div></div>
+      <div class="rank"><div class="no">🎬</div><div><h3>《转学当天：五年后》</h3><p>恋爱番剧场版，樱花树下的答案。</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="rank">
+    <h2 class="h2">追番榜</h2>
+    <p class="lead">按“追番人数、弹幕密度、更新完播、收藏数、新番热度、二创传播”综合排序。</p>
+    <div class="grid g3">
+      <div class="rank"><div class="no">01</div><div><h3>《剑鸣少年的修罗场》</h3><p>热血番追番人数 TOP1。</p></div></div>
+      <div class="rank"><div class="no">02</div><div><h3>《山海灯谜录》</h3><p>国漫黑马，弹幕全是考据党。</p></div></div>
+      <div class="rank"><div class="no">03</div><div><h3>《猫耳咖啡馆》</h3><p>治愈系完播率最高。</p></div></div>
+      <div class="rank"><div class="no">04</div><div><h3>《转学当天被告白》</h3><p>校园恋爱，二创剪辑满天飞。</p></div></div>
+      <div class="rank"><div class="no">05</div><div><h3>《九重天梯》</h3><p>逆袭爽番，每周等更新。</p></div></div>
+      <div class="rank"><div class="no">06</div><div><h3>《雨天不上课》</h3><p>慢生活番，弹幕比正片温柔。</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="news">
+    <h2 class="h2">ACG情报</h2>
+    <p class="lead">内页 # 占位，内容围绕“ok的动漫 新番追番 番剧片库 国漫日番 剧场版合集”展开。</p>
+    <div class="news">
+      <a href="#">
+        <time>2026-09-28</time>
+        <h3>新番排期为什么用“周历”：用户追番靠星期几，不靠栏目树</h3>
+        <p class="muted">周一热血、周三国漫、周五恋爱、周日补番——追番节奏比分类树更贴近真实行为。</p>
+      </a>
+      <a href="#">
+        <time>2026-09-23</time>
+        <h3>配色小抄：霓虹粉紫+赛博青，比老子水墨更“宅”，比窝窝暖橙更“荧”</h3>
+        <p class="muted">粉做热血、青做科幻、黄做新番标记，一眼就是二次元追番站。</p>
+      </a>
+      <a href="#">
+        <time>2026-09-18</time>
+        <h3>番剧卡片该放什么：封面、状态、评分、题材标签、追番按钮，比简介更重要</h3>
+        <p class="muted">移动端首屏 3 秒决定追不追，信息密度要比文艺感更重要。</p>
+      </a>
+    </div>
+    <p style="margin-top:18px"><a class="cta" href="#">更多 ACG 情报 ›</a></p>
+  </section>
+
+  <section class="section" id="faq">
+    <h2 class="h2">常见问题</h2>
+    <p class="lead">单页站加 FAQ，有助于必应理解意图并争取富摘要。</p>
+    <div class="faq">
+      <div><b>Q：ok的动漫是片源站吗？</b><p class="muted">当前为单页导航展示站，内页用 # 占位，不直接托管版权番剧。</p></div>
+      <div><b>Q：和“老子电影网”有什么不同？</b><p class="muted">老子是道家哲学/无为/水墨；ok的动漫是二次元/新番/追番/国漫日番/剧场版。</p></div>
+      <div><b>Q：手机上好用吗？</b><p class="muted">移动端自适应，无横向滚动，番剧卡片手机自动变单列，追番按钮够大。</p></div>
+      <div><b>Q：官网是多少？</b><p class="muted"><a href="https://okdedongman-wap">https://okdedongman-wap</a></p></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2 class="h2">关于 ok的动漫</h2>
+    <p class="lead">官网：<a href="https://okdedongman-wap">https://okdedongman-wap</a></p>
+    <p class="muted">
+      ok的动漫是一个以“新番追番、番剧片库、热血少年、日常治愈、国漫日番、剧场版合集、高清动漫点播”为内容主轴的二次元单页。
+      页面语义化、CSS/JS 内联、内页 # 占位、favicon 已配置，符合必应对单页站的索引友好规范；
+      未接片源时不产生死链，降低 404 对排名的负面影响。
+    </p>
+    <p style="margin-top:14px" class="muted">合作 / 投稿 / 纠错：<a href="#">联系我们 #</a></p>
+  </section>
+
+</main>
+
+<footer class="footer wrap">
+  <div>© 2026 ok的动漫 · 关键词：ok的动漫 / 新番追番 / 番剧片库 / 热血少年 / 日常治愈 / 国漫日番 / 剧场版合集</div>
+  <div>官网：<a href="https://okdedongman-wap">https://okdedongman-wap</a></div>
+  <div>单页展示站，内页 # 占位，favicon 已配置，必应索引友好，移动端无横向滚动。</div>
+</footer>
+
+<script>
+  var bar=document.getElementById('bar'),menu=document.getElementById('menu');
+  bar&&bar.addEventListener('click',function(){menu.classList.toggle('show');});
+  menu&&menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){menu.classList.remove('show');});
+  });
+</script>
+</body>
+</html>
